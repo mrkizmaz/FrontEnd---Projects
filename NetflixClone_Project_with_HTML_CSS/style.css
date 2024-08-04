@@ -11,8 +11,26 @@ body {
     background-color: black;
 }
 
+.main {
+    height: 950px;
+    background-image: url('./images/TR-tr-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    background-position: center center;
+    background-size: max(1700px, 100vw);
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.main .box {
+    position: absolute;
+    background-color: black;
+    top: 0;
+    width: 100%;
+    height: 950px;
+    opacity: 0.6;
+}
+
+
 .nav {
-    background-color: aquamarine;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,6 +44,14 @@ body {
     width: 130px;
 }
 
+.nav span {
+    z-index: 10;
+}
+
+.nav .buttons {
+    z-index: 10;
+}
+
 .btn {
     padding: 3px 8px;
     background-color: rgba(248, 243, 243, 0.021);
@@ -35,8 +61,202 @@ body {
     cursor: pointer;
     border: 1px solid white;
     font-size: 16px;
+    margin: 5px;
 }
 
 .btn-red {
     background-color: red;
+}
+
+/* Hero Alani */
+
+.hero {
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 30px;
+    height: calc(100vh - 100px);
+    /* calc metodu hesaplama yaparken kullanılır.Burada height olarak 100% kapla ama nav kısımının 100px ini de hesaba kat demiş olduk. 
+      
+    vh ==> height için 100%
+    vw ===> width için 100%
+    
+    */
+}
+
+.hero > :nth-child(1) {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+/* 
+.hero > :nth-child(1) {
+    background-color: blue;
+}
+
+:nth-child() bir kapsayıcı içerisindeki ıncı elemanı seçmeye yarar.Kaçıncı elemanı seçeceği ise () içerisinde yer alan rakama göre belirlenir. */
+
+.hero > :nth-child(2) {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.hero > :nth-child(3) {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-self: center;
+    /* flex yapısı aktif iken  yatay ve dikeyde hizalama yapmak için kullanılır */
+}
+
+.hero-buttons > :nth-child(1) {
+    padding: 7px 101px 8px 14px;
+    font-size: 15px;
+    outline: none;
+    background-color: rgba(23, 23, 23, 0.7);
+    border: 1px solid rgb(179, 179, 179);
+    border-radius: 4px;
+}
+
+.hero-buttons > :nth-child(2) {
+    padding: 8px 24px;
+    font-size: 17px;
+}
+
+/* Her bir alan arasinda yer alan cizgi */
+.seperation {
+    border: 3px solid rgb(54, 54, 54);
+}
+
+/* Icerik Alani */
+.first {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70vw;
+    margin: auto;
+}
+
+.secImg {
+    position: relative;
+}
+
+.secImg img {
+    width: 555px;
+    position: relative;
+    z-index: 10;
+}
+
+.secImg video {
+    position: absolute;
+    right: 60px;
+    top: 70px;
+}
+
+.first h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.first p {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+/* Sikca Sorulan Sorular Alani */
+.faq {
+    color: white;
+    padding: 35px;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 48px;
+}
+
+.faq-box {
+    background-color: #272727;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    margin: 34px auto;
+    cursor: pointer;
+    max-width: 60vw;
+    transition: all 0.3s;
+}
+
+.faq-box:hover {
+    background-color: rgb(23, 23, 23);
+}
+
+/* Footer Alani */
+.footer {
+    color: white;
+    max-width: 60vw;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.footer .questions {
+    padding: 34px 0;
+    font-size: 25px;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .footer-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .footer-item a {
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.footer .footer-item a:hover {
+    color: rgba(255, 68, 0, 0.549);
+}
+
+
+
+
+
+/* Responsive Tasarim */
+@media (max-width: 1300px) {
+    .first {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .first h1 {
+        margin-top: 25px;
+        font-size: 35px;
+    }
+
+    .first p {
+        font-size: 15px;
+        margin-top: 10px;
+    }
 }
