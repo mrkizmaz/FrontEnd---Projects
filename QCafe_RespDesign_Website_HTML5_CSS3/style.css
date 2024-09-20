@@ -29,7 +29,7 @@ body {
 /*! Header Area */
 
 .container {
-    background-color: bisque;
+    /* background-color: bisque; */
     max-width: 1060px;
     margin: auto;
     width: 100%;
@@ -315,10 +315,149 @@ header {
     margin-top: 10px;
 }
 
+/* ! Reviews */
 
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
 
+.review-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid gray; */
+    background-color: var(--container-color);
+    padding: 10px;
+    border-radius: 6px;
+}
 
+.review-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; 
+    /* resmi iceri aktarar düzgün bir görünüm saglar */
+    border-radius: 50%;
+    object-position: center;
+    box-shadow: 0 4px 16px black;
+    border: 6px solid white;
+}
 
+.review-box h2 {
+    font-size: 20px;
+    color: var(--main-color);
+    font-family: var(--poppins-font);
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+.review-box span {
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--main-color);
+}
+
+.review-box p {
+    font-family: var(--poppins-font);
+    font-size: 12px;
+    margin-top: 16px;
+    letter-spacing: 1.5px;
+    max-width: 500px;
+}
+
+/* ! Book */
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    margin-bottom: 200px;
+}
+
+.book-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.book-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.book-data {
+    margin-top: 64px;
+}
+
+.book-data h2 {
+    color: var(--bg-color);
+    font-size: 32px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.book-data form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--bg-color);
+    padding: 2px 10px;
+    margin: 16px 0;
+    border-radius: 32px;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.input-box .bx {
+    color: var(--text-color);
+}
+
+.input-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 15px 0;
+    background-color: var(--bg-color);
+}
+
+.book-btn {
+    white-space: nowrap; /* yazinin alt satira gecmesini engeller */
+    padding: 10px 14px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 40px;
+    font-size: 13px;
+    transition: all 0.4s;
+}
+
+.book-btn:hover {
+    background-color: var(--second-color);
+    cursor: pointer;
+
+}
+
+.book-data p {
+    color: var(--bg-color);
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+}
 
 
 
@@ -344,7 +483,11 @@ header {
         padding: 40px;
     }
 }
-@media (max-width: 875px) {}
+@media (max-width: 875px) {
+    .reviews {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 @media (max-width: 770px) {
     .home {
         min-height: 500px;
@@ -383,6 +526,10 @@ header {
 
     #menu-icon {
         display: block;
+    }
+
+    .reviews {
+        grid-template-columns: 1fr;
     }
 }
 @media (max-width: 500px) {
