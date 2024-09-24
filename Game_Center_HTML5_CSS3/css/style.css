@@ -23,8 +23,18 @@
 }
 
 /* * Basic Styles */
-a {
-    text-decoration: none;
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+::selection {
+    background: var(--main-color);
+    color: var(--text-color);
+}
+
+section {
+    padding: 4rem 0 3rem;
 }
 
 .container {
@@ -34,9 +44,12 @@ a {
     width: 100%;
 }
 
-body {
-    background-color: var(--body-color);
-    color: var(--text-color);
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
 }
 
 /* ! HEADER */
@@ -113,7 +126,7 @@ header {
     cursor: pointer;
 }
 
-.login-btn i {
+.login-btn .bx {
     font-size: 18px;
     font-weight: 600;
     transition: all 0.4s linear;
@@ -127,27 +140,25 @@ header {
     display: none;
 }
 
-.menu-icon {
+.menu-icon .bx {
     color: var(--text-color);
     font-size: 25px;
 }
 
 
 /* ! HOME */
-.home-container {
+.home-wrapper {
     min-height: 640px;
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
-.home-frame {
-    position: relative;
-}
-
-.frame-img {
+.home-wrapper img {
+    position: absolute;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
 }
 
 .home-overlay {
@@ -162,15 +173,201 @@ header {
     z-index: 100;
 }
 
+.home-text {
+    position: absolute;
+    z-index: 200;
+    top: 250px;
+    left: 100px;
+}
+
+.home-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.home-title span {
+    color: var(--main-color);
+}
+
+.home-title::after, .faq-title::after {
+    position: absolute;
+    content: "";
+    width: 44px;
+    height: 3px;
+    background-color: var(--main-color);
+    left: 0;
+    top: -10px;
+}
+
+.home-description {
+    max-width: 450px;
+    font-size: 16px;
+    margin: 0.2rem 0 1rem;
+}
+
+.btn {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+}
+
+.btn:hover {
+    background: var(--hover-color);
+}
 
 
+/* ! SERVICES */
+.heading {
+    position: relative;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
 
+.heading::after {
+    position: absolute;
+    content: "";
+    background: var(--main-color);
+    width: 44px;
+    height: 3px;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%);
+}
 
+.services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    gap: 1.5rem;
+}
 
+.ser-box {
+    background: var(--container-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.3rem;
+    padding: 15px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
 
+.ser-box:hover {
+    transform: scale(1.05);
+}
 
+.ser-box .bx {
+    font-size: 1.7rem;
+    background: var(--main-color);
+    padding: 10px;
+    border-radius: 0.3rem;
+}
 
+.ser-box-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 1.3rem 0 0.5rem;
+}
 
+.ser-box p {
+    font-size: 14px;
+}
+
+/* ! GAMES */
+.games-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    gap: 2rem;
+}
+
+.games-box {
+    background: var(--container-color);
+    border-radius: 0.3rem;
+}
+
+.games-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.4rem;
+    transform: scale(1.04);
+    box-shadow: 0px 10px 5px rgba(23, 27, 68, 80%);
+}
+
+.game-text {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.game-box-title {
+    font-size: 1.2rem;
+    font-size: 500;
+    text-transform: uppercase;
+}
+
+.game-price {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.game-price span {
+    color: var(--text-alter-color);
+}
+
+.games-box p {
+    font-size: 14px;
+}
+
+.game-btn {
+    color: var(--main-color);
+    margin-top: 0.5rem;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ! FAQ */
+.faq {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.faq-text {
+    flex: 1 1 17rem; /* büyültme, kücültme, boyutu */
+}
+
+.faq-img {
+    flex: 1 1 17rem;
+}
+
+.faq-img img {
+    width: 100%;
+}
+
+.faq-title {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.faq-text p {
+    font-size: 14px;
+    text-align: justify;
+    margin: 0.5rem 0 1.5rem;
+}
 
 
 
