@@ -341,7 +341,7 @@ header {
 .faq {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* tasma olursa alta atar */
     gap: 2rem;
 }
 
@@ -370,14 +370,181 @@ header {
 }
 
 
+/* ! ACCORDION */
+.faq-accordion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.accordion-text {
+    flex: 1 1 17rem;
+}
+
+.accordion-container {
+    flex: 1 1 17rem;
+}
+
+.accordion-text h2 {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.accordion-text p {
+    margin: 0.5rem 0 1.5rem;
+}
+
+.accordion-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.accordion-item {
+    background-color: var(--container-color);
+    padding: 10px;
+    border-radius: 0.25rem;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.accordion-title {
+    font-size: 1rem;
+    font-size: 400;
+}
+
+.accordion-icon {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
 
 
+/* ! CONTROL PANEL */
+.control {
+    background: var(--body-color);
+}
 
+.control-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
 
+.control-text {
+    flex: 1 1 17rem;
+}
 
+.control-images {
+    flex: 1 1 17rem;
+}
 
+.control-title {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 
+.control-text p {
+    font-size: 14px;
+    margin: 0.5rem 0 0.8rem;
+}
 
+.control-text .bx {
+    color: var(--main-color);
+}
+
+.spec-box {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.spec-box span {
+    font-size: 14px;
+}
+
+/* ! FOOTER */
+footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem !important;
+    padding-bottom: 20px;
+}
+
+.footer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-box h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.footer-box a {
+    color: #d4d4d4;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 0.3s linear;
+}
+
+.footer-box a:hover {
+    color: var(--hover-color);
+    /* font-size: 1rem; */
+}
+
+.footer-box .footer-logo {
+    color: var(--main-color);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.social {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.social .bx {
+    font-size: 1.5rem;
+    transition: all 0.4s linear;
+}
+
+.social .bx:hover {
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+/* ! COPYRIGHT */
+.copyright {
+    border-top: 1px solid var(--text-color);
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright p {
+    font-size: 0.8rem;
+}
+
+.payments .bx {
+    font-size: 25px;
+}
 
 
 
@@ -386,11 +553,28 @@ header {
 
 /* ! RESPONSIVE */
 @media (max-width: 1050px) {
-
+    .container {
+        margin: 0 auto;
+        width: 92%;
+    }
 }
 
 @media (max-width: 952px) {
+    .nav {
+        padding: 14px 0;
+    }
+    
+    section {
+        padding: 3rem 0.5rem 2rem;
+    }
 
+    .home-text {
+        left: 20px;
+    }
+
+    footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 850px) {
@@ -408,5 +592,9 @@ header {
 
     .nav {
         padding: 10px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
     }
 }
