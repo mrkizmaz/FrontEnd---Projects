@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emartech Building</title>
+    <!-- * Tarayici Icon -->
+    <link rel="shortcut icon" href="./images/emartech-logo.jpeg" type="image/x-icon">
+    <!-- * CSS Link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- * BS CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- * BS Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <!-- * HEADER -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top"> <!-- fixed-top: yukariya sabitler -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/emartech-logo.jpeg" width="55" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav text-center ms-auto mx-4"> <!-- ms-auto: saga yaslar -->
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Popüler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Servis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Yorumlar</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sorular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn bg-dark text-white rounded-3" href="#">Bize Ulasin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- * CAROUSEL -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./images/home6.jpg" class="d-block w-100-height" alt="...">
+
+                <div class="carousel-caption carousel1">
+                    <p>1/3</p>
+                    <h5>Daha Fazla Kesfedin</h5>
+                    <div class="d-flex">
+                        <input type="text" class="form-control w-50" placeholder="Arama... ">
+
+                        <button class="btn btn-light btn-sm justify-content-md-end mx-2 px-3">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./images/home7.jpg" class="d-block w-100-height" alt="...">
+
+                <div class="carousel-caption carousel1">
+                    <p>3/3</p>
+                    <h5>Gelecek Nesiller Icin</h5>
+                    <a href="#" class="btn btn-light btn-lg mt-3">Daha Fazla</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./images/home8.jpg" class="d-block w-100-height" alt="...">
+
+                <div class="carousel-caption carousel1">
+                    <p>3/3</p>
+                    <h5>Emlak Alim Satim</h5>
+                    <a href="#" class="btn btn-light btn-lg mt-3">Daha Fazla</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- * POPULAR -->
+    <section class="container" style="margin-top: 100px;" id="popular">
+        <p>Popüler</p>
+        <div class="d-flex">
+            <h2>Popüler Rezidanslarimiz</h2>
+            <h6 class="ms-auto">Tümünü Kesfedin <span class="fs-3 fw-bolder arrow-icon">&rarr;</span></h6>
+        </div>
+
+        <!-- * CARDS -->
+        <div class="row row-cols-md-2 row-cols-lg-3">
+            <div class="col">
+                <div class="card">
+                    <img src="./images/home1.jpg" alt="">
+                    <div class="card-body">
+                        <p>Malatya, Türkiye</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <p><i class="bi bi-car-front"></i> 20 dk</p>
+                            <p><i class="bi bi-play-fill"></i> 8*8</p>
+                            <p><i class="bi bi-compass"></i> 2000m<sup>2</sup></p>
+                        </div>
+                        <div class="d-flex my-2">
+                            <button class="btn bg-dark text-white fs-6 btn-lg px-4">Rezervasyon Yap</button>
+                            <h5 class="ms-auto my-auto">22.000.000 TL</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="./images/home1.jpg" alt="">
+                    <div class="card-body">
+                        <p>Malatya, Türkiye</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <p><i class="bi bi-car-front"></i> 20 dk</p>
+                            <p><i class="bi bi-play-fill"></i> 8*8</p>
+                            <p><i class="bi bi-compass"></i> 2000m<sup>2</sup></p>
+                        </div>
+                        <div class="d-flex my-2">
+                            <button class="btn bg-dark text-white fs-6 btn-lg px-4">Rezervasyon Yap</button>
+                            <h5 class="ms-auto my-auto">22.000.000 TL</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="./images/home1.jpg" alt="">
+                    <div class="card-body">
+                        <p>Malatya, Türkiye</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <p><i class="bi bi-car-front"></i> 20 dk</p>
+                            <p><i class="bi bi-play-fill"></i> 8*8</p>
+                            <p><i class="bi bi-compass"></i> 2000m<sup>2</sup></p>
+                        </div>
+                        <div class="d-flex my-2">
+                            <button class="btn bg-dark text-white fs-6 btn-lg px-4">Rezervasyon Yap</button>
+                            <h5 class="ms-auto my-auto">22.000.000 TL</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * DARK AREA -->
+    <section class="bg-dark" style="margin-top: -150px;">
+        <div class="container pt-5">
+            <div class="row" style="color: #b5b5b5; margin-top: 20%;">
+                <div class="col-lg-4">
+                    <h2>Ersel Kizmaz</h2>
+                    <p>CEO</p>
+                </div>
+                <div class="col-lg-8">
+                    <!-- 1h-lg: büyük satir yüksekligini ayarlar! -->
+                    <h6 class="1h-lg">" Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quam maxime
+                        repudiandae unde
+                        optio sapiente reprehenderit vel laboriosam provident impedit nobis voluptatibus, quasi magni,
+                        earum quas recusandae. Aliquid, ullam voluptate!
+                        Quaerat ipsum optio dicta, soluta obcaecati repudiandae! Dolores laudantium tempore odit minus
+                        magnam commodi repellendus molestias dolorum veritatis neque, laboriosam a quos recusandae quis,
+                        ipsum repellat optio quam quae facere.
+                        Nostrum ea, sint quo quia illum cum est minima, dolorem recusandae sunt obcaecati rem cupiditate
+                        nisi sequi quam quasi quae, beatae corporis excepturi praesentium exercitationem eius. Impedit
+                        eos quam aspernatur. "</h6>
+                </div>
+            </div>
+            <hr class="text-light">
+
+            <div class="container mt-4 pb-4">
+                <div class="row text-center">
+                    <div class="col-md-3 col-sm-6">
+                        <img src="./images/logo1.png" class="w-75" alt="">
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <img src="./images/logo2.png" class="w-75" alt="">
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <img src="./images/logo3.png" class="w-75" alt="">
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <img src="./images/logo4.png" class="w-75" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * SERVICES -->
+    <section>
+        <h2 class="text-center pt-4 pb-4">Hizmetlerimiz</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="d-flex">
+                        <div class="about-img mx-2">
+                            <img src="./images/about1.png" class="img-fluid h-100 mt-4" alt="">
+                        </div>
+                        <div class="about-img">
+                            <img src="./images/about2.png" class="img-fluid h-75" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-12 mt-5">
+                    <div>
+                        <h2>Konfor bizim birinci önceligimizdir</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam officia, at perspiciatis hic
+                            quisquam dolores doloribus doloremque magni, distinctio asperiores maiores minima ducimus,
+                            dignissimos possimus accusamus molestias ad quibusdam laborum?
+                            Quo libero neque vero. Nulla delectus praesentium cupiditate aliquid, at provident iure
+                            voluptates illo iste voluptate reiciendis beatae! Error impedit modi quam ipsam, fugiat eum
+                            unde iste reprehenderit nisi eveniet?
+                            Odit, debitis optio ipsam sequi illum at officia voluptate qui libero in? Beatae officia,
+                            perspiciatis vero soluta debitis facilis distinctio totam nihil eligendi quasi provident!
+                            Consequatur vitae unde id incidunt!
+                        </p>
+                        <button class="btn bg-dark text-white px-3">Dafa fazlasi icin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * BLOG -->
+    <section class=" container mt-5">
+        <!-- Top area -->
+        <p>BLOG</p>
+        <div class="d-flex">
+            <h2>Güncel Konut Bilgileri</h2>
+            <button class="btn bg-dark text-white ms-auto px-4 btn-md">Tümünü Gör</button>
+        </div>
+
+        <!-- Cards area -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3">
+            <div class="col">
+                <div class="card">
+                    <img src="./images/home3.jpg" alt="">
+                    <div class="card-body">
+                        <p class="card-text text-muted">14 Agustos 2024</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sit natus labore fugiat ex
+                            perferendis, facilis quidem est hic enim. Aut mollitia eveniet explicabo ex voluptate?
+                            Accusamus a cumque ipsam.</p>
+                        <button class="btn text-primary" style="background-color: #d4e8ff;">Dafa fazla oku</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 rounded-0">
+                    <img src="./images/home3.jpg" alt="">
+                    <div class="card-body">
+                        <p class="card-text text-muted">14 Agustos 2024</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sit natus labore fugiat ex
+                            perferendis, facilis quidem est hic enim. Aut mollitia eveniet explicabo ex voluptate?
+                            Accusamus a cumque ipsam.</p>
+                        <button class="btn text-primary" style="background-color: #d4e8ff;">Dafa fazla oku</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="./images/home3.jpg" alt="">
+                    <div class="card-body">
+                        <p class="card-text text-muted">14 Agustos 2024</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sit natus labore fugiat ex
+                            perferendis, facilis quidem est hic enim. Aut mollitia eveniet explicabo ex voluptate?
+                            Accusamus a cumque ipsam.</p>
+                        <button class="btn text-primary" style="background-color: #d4e8ff;">Dafa fazla oku</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- * BS JS Link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
