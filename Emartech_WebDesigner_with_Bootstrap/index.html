@@ -35,21 +35,21 @@
                         <a class="nav-link" aria-current="page" href="#">Anasayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Popüler</a>
+                        <a class="nav-link" href="#popular">Popüler</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Servis</a>
+                        <a class="nav-link" href="#service">Servis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Yorumlar</a>
+                        <a class="nav-link" href="#blog">Blog</a>
                     </li>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sorular</a>
+                        <a class="nav-link" href="#comments">Yorumlar</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#question">Sorular</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn bg-dark text-white rounded-3" href="#">Bize Ulasin</a>
@@ -224,7 +224,7 @@
     </section>
 
     <!-- * SERVICES -->
-    <section>
+    <section id="service">
         <h2 class="text-center pt-4 pb-4">Hizmetlerimiz</h2>
         <div class="container">
             <div class="row">
@@ -260,7 +260,7 @@
     </section>
 
     <!-- * BLOG -->
-    <section class=" container mt-5">
+    <section class=" container mt-5" id="blog">
         <!-- Top area -->
         <p>BLOG</p>
         <div class="d-flex">
@@ -308,6 +308,195 @@
             </div>
         </div>
     </section>
+
+    <!-- * REVIEWS -->
+    <section class="bg-dark p-4" id="comments">
+        <div class="container">
+            <div class="d-flex">
+                <h2 class="text-light">Müsterilerimiz bizim hakkimizda ne diyor?</h2>
+                <div class="ms-auto">
+                    <button class="btn btn-md text-light"><span>&larr;</span></button>
+                    <button class="btn btn-md text-light"><span>&rarr;</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container row row-cols-1 row-cols-md-2 row-cols-lg-3 mx-auto mt-3 pb-3">
+            <div class="card border-0 bg-transparent col-md-8">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="./images/team-1.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">Ahmet Can</h5>
+                            <p class="card-text text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                elit.
+                                Molestiae
+                                quis sequi magnam
+                            </p>
+                            <p class="card-text text-light">Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-0 bg-transparent col-md-8">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="./images/team-2.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">Bekir</h5>
+                            <p class="card-text text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                elit.
+                                Molestiae
+                                quis sequi magnam
+                            </p>
+                            <p class="card-text text-light">Lead Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-0 bg-transparent col-md-8">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="./images/team-3.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">Cengo</h5>
+                            <p class="card-text text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                elit.
+                                Molestiae
+                                quis sequi magnam
+                            </p>
+                            <p class="card-text text-light">Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * QUESTIONS -->
+    <section id="question">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="about-text">
+                        <p>Sorular</p>
+                        <h2>Sikca Sorulan Sorular</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem veniam officia corporis odit
+                            dignissimos, omnis itaque voluptatibus quia rem sunt vero dolore nesciunt, repellendus
+                            cumque explicabo ipsum, dolor quibusdam quae.</p>
+                        <button class="btn btn-dark px-3">Dafa fazlasi icin</button>
+                    </div>
+                </div>
+                <!-- Accordion -->
+                <div class="accordion mt-5 col-lg-7" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Accordion Item #1
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> It is shown by default, until
+                                the collapse plugin adds the appropriate classes that we use to style each element.
+                                These classes control the overall appearance, as well as the showing and hiding via CSS
+                                transitions. You can modify any of this with custom CSS or overriding our default
+                                variables. It's also worth noting that just about any HTML can go within the
+                                <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Accordion Item #2
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>This is the second item's accordion body.</strong> It is hidden by default,
+                                until the collapse plugin adds the appropriate classes that we use to style each
+                                element. These classes control the overall appearance, as well as the showing and hiding
+                                via CSS transitions. You can modify any of this with custom CSS or overriding our
+                                default variables. It's also worth noting that just about any HTML can go within the
+                                <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Accordion Item #3
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
+                                the collapse plugin adds the appropriate classes that we use to style each element.
+                                These classes control the overall appearance, as well as the showing and hiding via CSS
+                                transitions. You can modify any of this with custom CSS or overriding our default
+                                variables. It's also worth noting that just about any HTML can go within the
+                                <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * FOOTER -->
+    <footer class="bg-dark text-light p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>Bizim Hakkimizda</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                    <p><i class="bi bi-crosshair"></i> Malatya</p>
+                    <p><i class="bi bi-telephone-fill"></i> 444 44 44</p>
+                    <p><i class="bi bi-envelope"></i> info@email.com</p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Hizli Baglantilar</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-decoration-none text-light" href="#">Anasayfa</a></li>
+                        <li><a class="text-decoration-none text-light" href="#">Popüler</a></li>
+                        <li><a class="text-decoration-none text-light" href="#">Hizmetlerimiz</a></li>
+                        <li><a class="text-decoration-none text-light" href="#">Haberler</a></li>
+                        <li><a class="text-decoration-none text-light" href="#">Iletisim</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Bize Ulasmak Icin</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-facebook"></i> Facebook</li>
+                        <li><i class="bi bi-instagram"></i> Instagram</li>
+                        <li><i class="bi bi-twitter-x"></i> X</li>
+                        <li><i class="bi bi-youtube"></i> Youtube</li>
+                        <li><i class="bi bi-linkedin"></i> Linkedin</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-center">&copy; <a class="text-decoration-none text-secondary" href="#">Emartech</a>
+                        tüm
+                        haklari saklidir.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
