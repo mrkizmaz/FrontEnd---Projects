@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+.flex, header .header-right, header .navbar, header {
+  display: flex;
+  align-items: center;
+}
+
+.transition, header .header-right a, header .navbar a {
+  transition: all 0.5s ease;
+}
+
+header {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 27px 17px;
+  justify-content: space-between;
+}
+header .logo {
+  font-size: 33px;
+  color: #fff;
+  font-weight: 700;
+}
+header .logo span {
+  color: #ffa343;
+}
+header .navbar a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 15px 22px;
+}
+header .navbar a:hover {
+  color: #ffa343;
+}
+header .header-right a {
+  font-size: 20px;
+  color: #fff;
+  margin-right: 18px;
+  margin-left: 5px;
+}
+header .header-right a:hover {
+  color: #ffa343;
+  transform: translateY(-3px);
+}
+header .header-right a:first-child {
+  font-size: 1rem;
+  margin-right: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  /* Sayfa icerisindeki gecisleri daha yumusak hale getirir. */
+}
+
+body {
+  font-family: "Open Sans", serif;
+  background-color: #000;
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

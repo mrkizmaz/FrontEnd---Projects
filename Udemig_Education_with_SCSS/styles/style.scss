@@ -1,0 +1,27 @@
+// Google Fonts font-family: "Open Sans", serif;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+// SCSS importlari
+@import "./variables";
+@import "./header";
+
+// CSS sifirlama
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    /* Sayfa icerisindeki gecisleri daha yumusak hale getirir. */
+}
+
+// Ortak cssler
+body {
+    font-family: "Open Sans", serif;
+    background-color: $bg-color;
+    color: $text-color;
+}
