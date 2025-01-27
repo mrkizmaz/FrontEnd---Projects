@@ -1,0 +1,43 @@
+@import "./global";
+@import "./variables";
+
+.home {
+    position: relative;
+    // background-color: aqua;
+    height: 100vh; // tüm ekrani kaplasin
+    width: 100%;
+    background-image: linear-gradient(to left,
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)),
+        url(/images/group.jpeg);
+    background-size: cover;
+    background-position: bottom center;
+    @extend .flex;
+    justify-content: flex-start;
+
+    .home-text {
+        h5 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: $main-color;
+        }
+
+        h1 {
+            font-size: $h1-font;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: $p-font;
+            font-weight: 500;
+            line-height: 30px;
+            color: $gray;
+            margin-bottom: 35px;
+        }
+    }
+}
