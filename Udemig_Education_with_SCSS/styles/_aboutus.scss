@@ -38,3 +38,10 @@
         }
     }
 }
+
+@media (max-width: 1220px) {
+    .about-us {
+        display: flex;
+        flex-direction: column;
+    }
+}
