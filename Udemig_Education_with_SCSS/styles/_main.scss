@@ -41,3 +41,26 @@
         }
     }
 }
+
+@media (max-width: 1220px) {
+    .home {
+        .home-text {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h5 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 5px 10px;
+                font-size: 1rem;
+            }
+        }
+    }
+}

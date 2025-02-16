@@ -59,3 +59,15 @@ header {
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .navbar li {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-right a {
+        display: none;
+    }
+}
