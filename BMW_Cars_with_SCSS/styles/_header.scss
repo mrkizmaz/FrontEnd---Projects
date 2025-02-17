@@ -1,0 +1,44 @@
+@import "./variables";
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    img {
+        width: 50px;
+        margin-left: 20px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: $text-color;
+
+            &:hover {
+                color: crimson;
+                transition: all 0.5s;
+            }
+        }
+    }
+
+    #nav-left {
+        a {
+            padding: 0 20px;
+            border-right: 1px solid gray;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    #nav-right {
+        gap: 30px;
+        font-size: 15px;
+    }
+}
