@@ -2,6 +2,7 @@
 
 @import "./variables";
 @import "./header";
+@import "./hero";
 
 * {
     margin: 0;
@@ -11,4 +12,9 @@
 
 body {
     font-family: $main-font;
+    background-color: $bg-color;
+}
+
+img {
+    mix-blend-mode: darken; // fotografin arka planini kapsayiciya uyarlar
 }

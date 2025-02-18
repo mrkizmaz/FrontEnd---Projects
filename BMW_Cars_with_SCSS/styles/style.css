@@ -32,6 +32,133 @@ header #nav-right {
   gap: 30px;
   font-size: 15px;
 }
+@media (max-width: 800px) {
+  header #nav-right {
+    display: none;
+  }
+}
+header .opener {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 75px;
+  background-color: rgb(220, 220, 220);
+  box-shadow: 2px 2px 10px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px;
+  border-radius: 10px;
+}
+header .opener a {
+  text-decoration: none;
+  color: #000;
+}
+header .menu {
+  width: 40px;
+  display: none;
+}
+@media (max-width: 800px) {
+  header .menu {
+    display: block;
+  }
+}
+header .menu:hover + .opener {
+  display: flex;
+}
+
+.hero .slogan h2, .hero .slogan h1 {
+  font-family: "Inter";
+  color: #252a34;
+}
+
+.hero .slogan p {
+  color: #37393c;
+  font-size: 17px;
+}
+
+.hero .slogan button {
+  padding: 10px 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+  background: linear-gradient(rgb(215, 215, 215) 45%, #eaeaea 45%);
+}
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+  }
+}
+@media (min-width: 800px) and (max-width: 1400px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+  }
+}
+.hero .slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+}
+@media (max-width: 800px) {
+  .hero .slogan {
+    gap: 20px;
+  }
+}
+.hero .slogan h1 {
+  font-size: 40px;
+}
+@media (max-width: 800px) {
+  .hero .slogan h1 {
+    text-align: center;
+  }
+}
+.hero .slogan h1 span {
+  font-family: "Times New Roman", Times, serif;
+}
+.hero .slogan img {
+  width: 200px;
+}
+.hero .slogan button {
+  background-color: crimson;
+}
+.hero .slogan button:hover {
+  background-color: rgb(168, 16, 46);
+}
+.hero .images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.hero .images-banner {
+  max-width: 800px;
+}
+@media (min-width: 800px) and (max-width: 1400px) {
+  .hero .images-banner {
+    max-width: 500px;
+  }
+}
+.hero .images-track {
+  max-width: 400px;
+}
+.hero .images p {
+  max-width: 500px;
+  text-align: center;
+}
 
 * {
   margin: 0;
@@ -41,4 +168,9 @@ header #nav-right {
 
 body {
   font-family: "Poppins";
+  background-color: #eaeaea;
+}
+
+img {
+  mix-blend-mode: darken;
 }/*# sourceMappingURL=style.css.map */
