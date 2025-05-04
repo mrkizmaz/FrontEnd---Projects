@@ -115,7 +115,7 @@ img {
     display: inline-block;
     background-color: rgb(51, 105, 205);
     height: 100%;
-
+    /* width: 30%; */
     border-radius: 2em;
 }
 

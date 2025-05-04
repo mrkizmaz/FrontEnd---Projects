@@ -72,6 +72,21 @@ const setSong = (arrayIndex) => {
     songImage.src = image
 
     // süreyi ayarla
+    audio.onloadedmetadata = () => {
+        maxDuration.innerText = timeFormatter(audio.duration)
+    }
+
+    playListContainer.classList.add("hide")
+    playAudio()
+}
+
+// zamani istenilen formata göre ayarlama, 145 sn
+const timeFormatter = (timeInput) => {
+    let minute = Math.floor(timeInput / 60) // 3.25
+    minute = minute < 10 ? "0" + minute : minute
+    let second = Math.floor(timeInput % 60) // 25
+    second = second < 10 ? "0" + second : second
+    return `${minute}:${second}`
 }
 
 // sarkiyi oynat
@@ -129,8 +144,111 @@ pauseButton.addEventListener("click", pauseAudio)
 nextButton.addEventListener("click", nextSong)
 prevButton.addEventListener("click", previousSong)
 
+// karistirma butonuna tiklanildiginda
+shuffleButton.addEventListener("click", () => {
+    if (shuffleButton.classList.contains("active")) {
+        shuffleButton.classList.remove("active")
+        loop = true
+    }
+    else {
+        shuffleButton.classList.add("active")
+        loop = false
+    }
+})
+
+// tekrar et butonuna tiklanildiginda
+repeatButton.addEventListener("click", () => {
+    if (repeatButton.classList.contains("active")) {
+        repeatButton.classList.remove("active")
+        loop = false
+    }
+    else {
+        repeatButton.classList.add("active")
+        loop = true
+    }
+})
+
+// progress bara tiklanildiginda
+progressBar.addEventListener("click", (event) => {
+
+    // baslangic
+    let coordStart = progressBar.getBoundingClientRect().left
+    console.log("coord start: " + coordStart)
+
+    // bitis
+    let coordEnd = event.clientX
+    console.log("coord end: " + coordEnd)
+
+    // sürec
+    console.log("progressbar offsetwidth: " + progressBar.offsetWidth)
+    let progress = (coordEnd - coordStart) / progressBar.offsetWidth
+    console.log("progress: " + progress)
+    currentProgress.style.width = progress * 100 + "%"
+
+    // zamani güncelle
+    audio.currentTime = progress * audio.duration // kendi fonksiyonu
+
+    // oynat
+    audio.play()
+    pauseButton.classList.remove("hide")
+    playButton.classList.add("hide")
+
+})
+
+// ekran yüklenince
+setInterval(() => {
+    currentTimeRef.innerHTML = timeFormatter(audio.currentTime)
+    currentProgress.style.width = (audio.currentTime / audio.duration.toFixed(3)) * 100 + "%"
+}, 1000);
+
+// zaman güncellendiginde
+audio.addEventListener("timeupdate", () => {
+    currentTimeRef.innerText = timeFormatter(audio.currentTime)
+})
+
+// sarki bittiginde
+audio.onended = () => {
+    nextSong()
+}
+
+// oynatma listesini olustur
+const initializePlayList = () => {
+    for (let i in songList) {
+        playListSongs.innerHTML +=
+            `
+        <li class="playlistSong" onclick="setSong(${i})">
+            <div class="playlist-image-container">
+                <img src="${songList[i].image}" />
+            </div>
+            <div class="playlist-song-details">
+                <span id="playlist-song-name">
+                ${songList[i].name}
+                </span>
+                <span id="playlist-song-artist-album">
+                ${songList[i].artist}
+                </span>
+            </div>
+        </li>
+        `
+    }
+}
+
+
+
+// liste acma butonuna tiklanildiginda
+playListButton.addEventListener("click", () => {
+    playListContainer.classList.remove("hide")
+})
+
+// playlisti kapatmak icin
+closeButton.addEventListener("click", () => {
+    playListContainer.classList.add("hide")
+})
+
+// ekran yüklendiginde
 window.onload = () => {
     index = 0
     setSong(index)
     pauseAudio()
+    initializePlayList()
 }
