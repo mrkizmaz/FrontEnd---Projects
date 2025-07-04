@@ -12,6 +12,7 @@ const input = document.querySelector("#input");
 const itemList = document.querySelector(".item-list");
 const alert = document.querySelector(".alert");
 const addButton = document.querySelector(".submit-btn");
+const clearButton = document.querySelector(".clear-btn");
 // console.log(form, input)
 
 // !! Fonksiyonlar
@@ -31,6 +32,7 @@ const addItem = (e) => {
 
     else if (value !== "" && editMode) {
         editItem.innerHTML = value;
+        updateLocalStorage(editItemId, value);
         showAlert("Item was updated", "success");
         setToDefault();
     }
@@ -96,6 +98,11 @@ const deleteItem = (e) => {
     itemList.removeChild(element); // elemani kaldirir
     removeFromLocalstorage(id);
     showAlert("Item was deleted", "danger");
+
+    // eger hic eleman yoksa sifirlama butonunu kaldir
+    if (!itemList.children.length) {
+        clearButton.style.display = "none";
+    }
 }
 
 // * edit fonksiyonu
@@ -106,6 +113,20 @@ const editItems = (e) => {
     editMode = true;
     editItemId = element.dataset.id;
     addButton.textContent = "Edit";
+};
+
+// * sifirlama yapan fonksiyon
+const clearItems = () => {
+    const items = document.querySelectorAll(".items-list-item");
+    if (items.length > 0) {
+        items.forEach((item) => {
+            itemList.removeChild(item);
+        });
+        clearButton.style.display = "none";
+        showAlert("Empty List", "danger");
+        // localstoragei temizler
+        localStorage.removeItem("items");
+    };
 };
 
 // * edit fonsksiyonundan sonra varsayilan özelliklere döndüren fonksiyon
@@ -136,8 +157,25 @@ const removeFromLocalstorage = (id) => {
     localStorage.setItem("items", JSON.stringify(items));
 };
 
+// * Localstoragei güncelleyen fonksiyon
+const updateLocalStorage = (id, newValue) => {
+    let items = getFromLocalstorage();
+    items = items.map((item) => {
+        if (item.id === id) {
+            // Spread Operator: Bir elemani güncellerken veri kaybini önlemek icin kullanilir. Burada biz obje icerisinde yer alan valueya güncelledik. Ama bunu yaparken id degerini kaybetmemek icin Spread Operator kullandik
+            return { ...item, value: newValue };
+        };
+        return item;
+    });
+    localStorage.setItem("items", JSON.stringify(items));
+};
+
+
+
 // ? Olay izlenceleri
 // formun gönderildigi ani yakala
 form.addEventListener("submit", addItem);
 // sayfanin yüklendigi ani yakala
 window.addEventListener("DOMContentLoaded", renderItems);
+// clear butona tiklaninca elemanlari sifirlama
+clearButton.addEventListener("click", clearItems);
