@@ -189,6 +189,8 @@ header {
     cursor: pointer;
     text-align: center;
     margin: 45px 0 10px;
+    border: none;
+    outline: none;
 }
 
 /* * FOOTER */
