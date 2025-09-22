@@ -1,8 +1,9 @@
 // baglanti kontrolü
 // console.log(`selam js`);
 
-import { addToCart } from "./cart.js";
+import { addToCart, displayCartTotal, renderCartItems } from "./cart.js";
 import { fetchProducts, renderProducts } from "./products.js";
+import { getFromLocalStorage, updateCartIcon } from "./utills.js";
 
 // HTML den eleman cekme isleme
 const menuIcon = document.querySelector("#menu-icon");
@@ -20,8 +21,13 @@ menuIcon.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", async () => {
     // console.log(window);
 
+    const cart = getFromLocalStorage();
     if (window.location.pathname.includes("card.html")) {
         // console.log(`Cart sayfasindasin`);
+        renderCartItems();
+        displayCartTotal();
+        // sepet iconunu güncelle
+        updateCartIcon(cart);
     }
     else {
         // console.log(`Ana sayfadasin`);
@@ -31,5 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // buradaki arrow function addToCartCallBack fonksiyonu oluyor
         renderProducts(product, (event) => { addToCart(event, product) });
+        // sepet iconunu güncelle
+        updateCartIcon(cart);
     }
 });

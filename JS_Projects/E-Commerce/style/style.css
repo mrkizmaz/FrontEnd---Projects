@@ -400,6 +400,10 @@ footer {
         display: initial;
     }
 
+    .cart-box {
+        grid-template-columns: 1fr;
+    }
+
     .navbar {
         position: absolute;
         top: 100%;
