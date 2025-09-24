@@ -20,11 +20,27 @@
     <h1 class="heading">Menümüz</h1>
 
     <!-- * Butonlar -->
-    <div class="d-flex justify-content-center gap-3 my-4">
-        <button class="btn btn-dark">Hepsi</button>
-        <button class="btn btn-outline-dark">Kahvalti</button>
-        <button class="btn btn-outline-dark">Ogle Yemegi</button>
-        <button class="btn btn-outline-dark">Icecekler</button>
+    <div id="buttons" class="d-flex justify-content-center gap-3 my-4">
+        <div>
+            <label for="all">Hepsi</label>
+            <input type="radio" name="cat" id="all" checked>
+        </div>
+
+        <div>
+            <label for="breakfast">Kahvalti</label>
+            <input type="radio" name="cat" id="breakfast">
+        </div>
+
+        <div>
+            <label for="lunch">Ogle Yemegi</label>
+            <input type="radio" name="cat" id="lunch">
+        </div>
+
+        <div>
+            <label for="shakes">Icecekler</label>
+            <input type="radio" name="cat" id="shakes">
+        </div>
+
     </div>
 
     <!-- * Menü Listesi -->
@@ -33,7 +49,7 @@
     <div id="menu-list">
 
         <!-- card -->
-        <a href="#" id="card" class="d-flex flex-column flex-md-row text-dark gap-3 text-decoration-none">
+        <!-- <a href="#" id="card" class="d-flex flex-column flex-md-row text-dark gap-3 text-decoration-none">
             <img class="rounded shadow img-fluid" src="" alt="">
 
             <div>
@@ -46,15 +62,15 @@
                     saepe repudiandae quae ducimus voluptates, eius est labore placeat incidunt harum facere inventore
                     nobis nam.</p>
             </div>
-        </a>
+        </a> -->
         <!-- card -->
 
+        <!-- <div class="border-5 p-5 shadow">KART</div>
         <div class="border-5 p-5 shadow">KART</div>
         <div class="border-5 p-5 shadow">KART</div>
         <div class="border-5 p-5 shadow">KART</div>
         <div class="border-5 p-5 shadow">KART</div>
-        <div class="border-5 p-5 shadow">KART</div>
-        <div class="border-5 p-5 shadow">KART</div>
+        <div class="border-5 p-5 shadow">KART</div> -->
     </div>
 
 
