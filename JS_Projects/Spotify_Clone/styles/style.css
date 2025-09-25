@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+aside {
+  background: #282828;
+  padding: 20px;
+  border-radius: 10px;
+}
+aside figure {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+aside figure img {
+  width: 40px;
+}
+aside figure span {
+  font-size: 25px;
+  font-weight: bold;
+  color: #1db954;
+}
+@media (max-width: 992px) {
+  aside figure span {
+    display: none;
+  }
+}
+aside nav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+aside a {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+@media (max-width: 992px) {
+  aside a i {
+    font-size: 20px;
+  }
+}
+@media (max-width: 992px) {
+  aside a span {
+    display: none;
+  }
+}
+aside a:hover {
+  background: #1db954;
+  color: #121212;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #282828;
+  width: 100%;
+  gap: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+main header {
+  display: flex;
+  justify-content: space-between;
+  background: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  align-items: center;
+  gap: 20px;
+}
+main header form {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.445);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+}
+main header form input {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.78);
+  padding: 15px;
+  width: 100%;
+}
+main header form button {
+  padding-right: 10px;
+}
+main header nav {
+  display: flex;
+  gap: 15px;
+}
+@media (max-width: 650px) {
+  main header nav {
+    display: none;
+  }
+}
+main header nav span {
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+main header nav span:hover {
+  color: white;
+}
+main section {
+  flex: 1;
+}
+main section .list {
+  margin-top: 20px;
+  height: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.card {
+  background: #121212;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.card:hover .play {
+  bottom: 20px;
+  opacity: 1;
+}
+.card figure {
+  position: relative;
+}
+.card figure img {
+  border-radius: 10px;
+  width: 100%;
+}
+.card figure .play {
+  background: #1db954;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  bottom: -20px;
+  transition: all 0.3s;
+  font-size: 22px;
+  opacity: 0;
+  cursor: pointer;
+}
+.card figure .play:hover {
+  background: #159845;
+  scale: 1.1;
+  rotate: 360deg;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  font-family: "Poppins";
+  height: 100vh;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.78);
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+button {
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

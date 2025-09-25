@@ -1,0 +1,133 @@
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: $gray-color;
+    width: 100%;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto; // liste icinde scroll aktif olur, müzik bölgesi dahil olmuyor
+    overflow-x: hidden;
+
+    // üst kisim
+    header {
+        display: flex;
+        justify-content: space-between;
+        background: $black-color;
+        padding: 20px;
+        border-radius: 10px;
+        align-items: center;
+        gap: 20px;
+
+        form {
+
+            display: flex;
+            align-items: center;
+
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.445);
+            border-radius: 5px;
+            width: 100%;
+
+            max-width: 500px;
+
+            input {
+                background: transparent;
+                outline: none;
+                border: none;
+                color: $text-color;
+                padding: 15px;
+                width: 100%;
+
+            }
+
+            button {
+                padding-right: 10px;
+            }
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+
+            @media (max-width: 650px) {
+                display: none;
+            }
+
+            span {
+                cursor: pointer;
+                font-size: 14px;
+                white-space: nowrap;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+
+
+    // songs
+    section {
+        flex: 1;
+        // background: green;
+
+        .list {
+            margin-top: 20px;
+            height: 100%;
+            // background: red;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+    }
+
+}
+
+.card {
+    background: #121212;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: fit-content; // icerikten daha uzun olmasin
+
+    &:hover .play {
+        bottom: 20px;
+        opacity: 1;
+    }
+
+    figure {
+        position: relative;
+
+        img {
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .play {
+            background: $spotify-color;
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            position: absolute;
+            right: 10px;
+            bottom: -20px;
+            transition: all 0.3s;
+            font-size: 22px;
+            opacity: 0;
+            cursor: pointer;
+
+            &:hover {
+                background: #159845;
+                scale: 1.1;
+                rotate: 360deg;
+            }
+        }
+    }
+
+}
