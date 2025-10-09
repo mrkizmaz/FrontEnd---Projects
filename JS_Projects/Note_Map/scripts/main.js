@@ -1,10 +1,13 @@
 import { personIcon } from "./constants.js";
 import ui from "./ui.js";
+import getIcon, { getStatus } from "./helpers.js";
 
 // * Global Degiskenler
+let map;
 // Haritada tiklanilan noktanin koordinati
 let clickedCoords;
 // ls'da veri alsa al yoksa bos, JSON.parse: string (json) verisini diziye (js) verisine cevirir
+let layer; // imlecleri ekleyecegimiz katman
 let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
 // console.log(notes);
@@ -27,13 +30,23 @@ window.navigator.geolocation.getCurrentPosition((e) => {
 function loadMap(currentPosition, msg) {
     // console.log(currentPosition);
     // harita kurulumu - merkez belirleme
-    let map = L.map("map").setView(currentPosition, 20);
+    map = L.map("map", {
+        zoomControl: false,
+    }).setView(currentPosition, 20);
+
+    // zoom control butonunu opsiyonel ekle
+    L.control.zoom({
+        position: "bottomright",
+    }).addTo(map);
 
     // haritayi ekrana basar
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 10,
+        maxZoom: 15,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    // haritanin üzerine imlecleri eklemek icin bir katman olusturulmasi lazim
+    layer = L.layerGroup().addTo(map);
 
     // imlec ekleme
     L.marker(currentPosition, { icon: personIcon }).addTo(map).bindPopup(msg);
@@ -43,12 +56,13 @@ function loadMap(currentPosition, msg) {
 
     // ekrana daha önce veri var ise bas
     renderNotes();
+    renderMarkers();
 }
 // loadMap();
 
 //* haritaya tiklanma olayinda calisacak fonksiyon:
 function onMapClick(e) {
-    console.log("Tiklandi", e.latlng);
+    // console.log("Tiklandi", e.latlng);
     // tiklanan noktanin koordinatlarini global degiskene aktar
     clickedCoords = [e.latlng.lat, e.latlng.lng];
 
@@ -63,13 +77,13 @@ ui.cancelBtn.addEventListener("click", () => {
     ui.aside.className = "";
 })
 
-// form gönderilince:
+//* form gönderilince:
 ui.form.addEventListener("submit", (e) => {
     // sayfa yenilenmesini engelle
     e.preventDefault();
 
     // inputlardaki verilere eris
-    console.dir(e.target); // etiket bilgisi degil de nesne bilgisini verir
+    // console.dir(e.target); // etiket bilgisi degil de nesne bilgisini verir
 
     const title = e.target[0].value;
     const date = e.target[1].value;
@@ -90,7 +104,7 @@ ui.form.addEventListener("submit", (e) => {
     // console.log(newNote);
 
     notes.unshift(newNote); // son veriyi listenin basina ekler
-    console.log(notes);
+    // console.log(notes);
 
     // nesneyi global degiskene kaydet
 
@@ -101,31 +115,121 @@ ui.form.addEventListener("submit", (e) => {
     // aside alanindan "add" classini kaldir
     ui.aside.className = "";
 
+    // formu temizle
+    e.target.reset();
+
     // yeni eklenen notun ekrana basilmasi icin tekrar renderla, böylece sayfa yenilenmeden yeni eklenen not ekrana basilir
     renderNotes();
+    renderMarkers();
 })
+
+//* ekrana imlecleri bas:
+function renderMarkers() {
+    // eski imlecleri kaldir (katmandaki markerleri temizle)
+    layer.clearLayers();
+
+    notes.forEach((item) => {
+        // console.log(item.status);
+        // console.log(item);
+
+        // itemin statusune bagli icon belirle
+        const icon = getIcon(item.status);
+        L.marker(item.clickedCoords, { icon: icon }).addTo(layer).bindPopup(item.title);
+    })
+}
 
 //* ekrana notlari bas:
 function renderNotes() {
-    const noteCards = notes.map((item) => `
+    const noteCards = notes.map((item) => {
+        // tarihi kullanici dostu formata cevir
+        const date = new Date(item.date).toLocaleString("tr", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        })
+
+        // status degerini cevir (goto --> ziyaret, home --> ev vb)
+        const status = getStatus(item.status);
+
+        // olusturulacak notun html icerigini beirle
+        return `
     
-            <li data-id="${item.id}">
+            <li>
             <div>
                 <p>${item.title}</p>
-                <p>${item.date}</p>
-                <p>${item.status}</p>
+                <p>${date}</p>
+                <p>${status}</p>
             </div>
 
             <div class="icons">
-                <i class="bi bi-airplane-fill" id="fly"></i>
-                <i class="bi bi-trash-fill" id="delete"></i>
+                <i data-id="${item.id}" class="bi bi-airplane-fill" id="fly"></i>
+                <i data-id="${item.id}" class="bi bi-trash-fill" id="delete"></i>
             </div>
         </li>
     
-    `).join("");
+    `}).join("");
 
     // join: diziyi stringe cevirir
     // console.log(noteCards);
 
+    // notlari liste alaninda renderla
     ui.list.innerHTML = noteCards;
+
+    // delete iconlarini al ve tiklanma olaylarinda delete fonksiyonu calistir
+    document.querySelectorAll("li #delete").forEach((btn) => {
+        btn.addEventListener("click", () => deleteNote(btn.dataset.id));
+    });
+
+    // fly iconlarini al ve tiklanma olaylarinda fly fonksiyonu calistir
+    document.querySelectorAll("li #fly").forEach((btn) => {
+        btn.addEventListener("click", () => flyToLocation(btn.dataset.id));
+    });
 };
+
+//* sil butonuna tiklaninca
+function deleteNote(id) {
+    // console.log(id, "id'li note siliniyor...");
+    // console.log(id);
+    // console.log(notes);
+
+    // kullaniciya sor
+    const res = confirm("Notu silmeyi onayliyor musunuz?");
+
+    // eger onaylarsa notu sil
+    if (res) {
+        // id'sini bildigimiz elemani diziden sil 
+        notes = notes.filter((note) => note.id !== +id);
+
+        // console.log(notes);
+
+        // localstoragei güncelle
+        localStorage.setItem("notes", JSON.stringify(notes));
+
+        // güncel notlari ekrana bas
+        renderNotes();
+
+        // güncel imlecleri ekrana bas
+        renderMarkers();
+
+    };
+};
+
+//* ucus butonuna tiklaninca
+function flyToLocation(id) {
+    // console.log(id, "id'li locatina uculuyor...");
+    // console.log(notes);
+
+    // idsi bilinen elemani dizide bul
+    const note = notes.find((note) => note.id === +id);
+
+    // notun koordinatlarina uc
+    // console.log(note.clickedCoords);
+    map.flyTo(note.clickedCoords, 15);
+};
+
+//* tiklanma olayinda:
+// aside alanindaki form veya liste icerigini gizlemek icin hide classi ekle
+ui.arrow.addEventListener("click", () => {
+    // console.log("tiklandi");
+    ui.aside.classList.toggle("hide");
+})

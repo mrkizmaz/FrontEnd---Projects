@@ -21,55 +21,58 @@
 <body>
     <!-- Yan Icerik -->
     <aside>
-        <div class="sidebar">
+        <div class="head">
             <h1>Notlar</h1>
 
             <h1 id="add-title">Yeni Not</h1>
+            <i id="arrow" class="bi bi-chevron-up"></i>
 
-            <form>
-                <div class="field">
-                    <label>Durum</label>
-                    <input type="text" required>
-                </div>
-
-                <div class="field">
-                    <label>Tarih</label>
-                    <input type="date" required>
-                </div>
-
-                <div class="field">
-                    <label>Durum</label>
-                    <select required>
-                        <option value="" disabled selected>Seciniz...</option>
-                        <option value="goto">Ziyaret</option>
-                        <option value="park">Park Yeri</option>
-                        <option value="job">Is</option>
-                        <option value="home">Ev</option>
-                    </select>
-
-                </div>
-
-                <div class="buttons">
-                    <button>Ekle</button>
-                    <button id="cancel">Iptal</button>
-                </div>
-            </form>
-
-            <ul>
-                <li>
-                    <div>
-                        <p>Durak - 1</p>
-                        <p>06.10.2025</p>
-                        <p>Is</p>
-                    </div>
-
-                    <div class="icons">
-                        <i class="bi bi-airplane-fill" id="fly"></i>
-                        <i class="bi bi-trash-fill" id="delete"></i>
-                    </div>
-                </li>
-            </ul>
         </div>
+
+        <form>
+            <div class="field">
+                <label>Durum</label>
+                <input type="text" required>
+            </div>
+
+            <div class="field">
+                <label>Tarih</label>
+                <input type="date" required>
+            </div>
+
+            <div class="field">
+                <label>Durum</label>
+                <select required>
+                    <option value="" disabled selected>Seciniz...</option>
+                    <option value="goto">Ziyaret</option>
+                    <option value="park">Park Yeri</option>
+                    <option value="job">Is</option>
+                    <option value="home">Ev</option>
+                </select>
+
+            </div>
+
+            <div class="buttons">
+                <button>Ekle</button>
+                <button id="cancel">Iptal</button>
+            </div>
+        </form>
+
+        <ul>
+            <li>
+                <div>
+                    <p>Durak - 1</p>
+                    <p>06.10.2025</p>
+                    <p>Is</p>
+                </div>
+
+                <div class="icons">
+                    <i class="bi bi-airplane-fill" id="fly"></i>
+                    <i class="bi bi-trash-fill" id="delete"></i>
+                </div>
+            </li>
+        </ul>
+
     </aside>
 
     <!-- Harita -->

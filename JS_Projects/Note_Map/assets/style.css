@@ -20,25 +20,27 @@ aside {
 
     position: fixed;
     z-index: 9999;
-    height: 100vh;
+    /* height: 100vh; */
     left: 20px;
-    display: flex;
+    /* display: flex; */
+    background: rgba(53, 53, 53, 0.7);
+    height: 60vh;
+    width: 270px;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 40px;
+    overflow: hidden;
+    transition: all 0.4s;
 
-    .sidebar {
-        background: rgba(53, 53, 53, 0.7);
-        height: 60vh;
-        width: 270px;
-        border-radius: 10px;
-        color: #fff;
-        margin-top: 80px;
-        overflow: hidden;
-
-        &:hover {
-            background: rgb(53, 53, 53, 0.9);
-        }
+    &:hover {
+        background: rgb(53, 53, 53, 0.9);
     }
 
-    h1 {
+    @media (min-width:768px) {
+        height: 80vh;
+    }
+
+    .head {
         font-family: "Indie Flower", cursive;
         text-align: center;
         font-size: 25px;
@@ -47,6 +49,24 @@ aside {
         letter-spacing: 2px;
         padding: 5px;
         margin: 20px;
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+
+        h1 {
+            flex: 1;
+            font-size: 25px;
+        }
+
+        #arrow {
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.5s;
+
+            &:hover {
+                filter: drop-shadow(0 0 10px white);
+            }
+        }
     }
 
     ul {
@@ -159,8 +179,13 @@ aside {
     }
 }
 
+/* form modu */
 .add form {
     display: flex;
+}
+
+.add {
+    height: 390px;
 }
 
 .add #add-title {
@@ -169,5 +194,19 @@ aside {
 
 .add ul,
 .add h1 {
+    display: none;
+}
+
+/* gizli mod */
+.hide {
+    height: 100px;
+}
+
+.hide #arrow {
+    rotate: 180deg;
+}
+
+.hide ul,
+.hide form {
     display: none;
 }
