@@ -4,3 +4,24 @@ body {
     background: black;
     color: white;
 }
+
+.videos {
+    /* background: red; */
+    width: 100%;
+    height: calc(100vh - 75px);
+    padding: 20px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+}
+
+.videos::-webkit-scrollbar {
+    background: black;
+    width: 8px;
+}
+
+.videos::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 6px;
+}
