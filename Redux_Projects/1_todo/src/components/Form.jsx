@@ -2,6 +2,9 @@ import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
 import { actionTypes } from "../redux/actionTypes";
 import { toast } from "react-toastify";
+import api from "../api"
+import addTodos from "../redux/actions"
+
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -19,17 +22,16 @@ const Form = () => {
             createdAt: new Date().getTime(),
         };
 
-        // store haber ver
-        dispatch({
-            type: actionTypes.ADD,
-            payload: newTodo,
-        });
+        api.post("/todos", newTodo)
+            .then(() => {
+                // store haber ver
+                dispatch(addTodos(newTodo));
 
-        // bilgi ver    
-        toast.success("Todo basariyla eklendi.");
+                // bilgi ver    
+                toast.success("Todo basariyla eklendi.")
 
-        e.target.reset();
-
+                e.target.reset();
+            })
 
     }
 

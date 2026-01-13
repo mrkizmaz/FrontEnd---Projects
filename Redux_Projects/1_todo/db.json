@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": "9814f919-4c00-4d64-8348-65921c233429",
+      "text": "redux ögren",
+      "isDone": true,
+      "createdAt": 1768300037705
+    },
+    {
+      "id": "5c1a52d1-a797-43ec-a6b3-6ab5cb0088f3",
+      "text": "ts ögren",
+      "isDone": false,
+      "createdAt": 1768301695075
+    },
+    {
+      "id": "bbce8f63-7fc6-4c11-a4b5-7a98b308f7fb",
+      "text": "js ögrenildi",
+      "isDone": true,
+      "createdAt": 1768301699208
+    },
+    {
+      "id": "b8e1d8fa-8e42-4df6-81d8-6654b51f502a",
+      "text": "css ögren",
+      "isDone": false,
+      "createdAt": 1768301702984
+    }
+  ]
+}

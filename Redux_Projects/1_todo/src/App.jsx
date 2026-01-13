@@ -5,6 +5,8 @@ import { actionTypes } from "./redux/actionTypes"
 import Themes from "./components/Themes"
 import store from "./redux/store"
 import { toast } from "react-toastify"
+import { useEffect } from "react"
+import api from "./api"
 
 
 const App = () => {
@@ -13,6 +15,17 @@ const App = () => {
   const dispatch = useDispatch();
   // console.log(todoState);
 
+  // api'daki tüm verileri sayfa ilk acildiginda ekranda göstermek icin
+  useEffect(() => {
+    api
+      .get("/todos")
+      .then((res) =>
+        dispatch({
+          type: actionTypes.SET,
+          payload: res.data
+        }))
+  }, [])
+
   const changeTheme = () => {
     dispatch({
       type: actionTypes.TOGGLE,
@@ -20,7 +33,7 @@ const App = () => {
   };
 
   return (
-    <div className={`container p-4 ${!todoState.isDarkTheme && "bg-white text-dark"}`}>
+    <div className={`container p-4 mx-auto my-5 rounded-4 ${!todoState.isDarkTheme && "bg-white text-dark"}`}>
       <h2 className="text-center my-4">APP</h2>
 
       <div className="container">
@@ -29,7 +42,7 @@ const App = () => {
           <button onClick={changeTheme}>Tema Degis</button>
         </div>
 
-        <div>
+        <div className="container rounded-2">
           <Form />
           <List />
         </div>
