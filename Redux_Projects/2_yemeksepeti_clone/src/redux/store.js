@@ -1,9 +1,11 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import restaurantReducer from "./reducers/restaurantReducer";
 import { thunk } from "redux-thunk";
+import CardReducer from "./reducers/CardReducer";
 
 const rootReducer = combineReducers({
     restaurantReducer,
+    CardReducer,
 });
 
 // action'larin icerisinde api istegi kazandirmak icin thunk dahil edilir.

@@ -2,7 +2,7 @@ import axios from "axios";
 import actionTypes from "../actionTypes";
 
 // 1- normal redux aktion
-export const setRestaurants = (payload) => ({
+export const setRestaurants = async (payload) => ({
     type: actionTypes.REST_SUCCESS,
     payload,
 });

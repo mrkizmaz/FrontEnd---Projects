@@ -4,7 +4,7 @@ import { MdDeliveryDining } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 const RestaurantCard = ({ data }) => {
-    console.log(data)
+    // console.log(data)
     return (
         <Link to={`/restaurant/${data.id}`}
             className='relative shadow rounded-lg overflow-hidden hover:bg-gray-200 hover:shadow-lg cursor-pointer transition'>

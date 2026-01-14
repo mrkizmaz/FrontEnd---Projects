@@ -6,6 +6,7 @@ import Cart from './pages/Cart'
 import Header from './components/Header'
 import { useDispatch } from 'react-redux'
 import { getRestaurants } from './redux/acions/restActions'
+import { getCard } from './redux/acions/basketActions'
 
 const App = () => {
 
@@ -15,6 +16,8 @@ const App = () => {
   // 2. yöntem (thunk ile)
   useEffect(() => {
     dispatch(getRestaurants());
+
+    dispatch(getCard());
   }, [])
 
 
