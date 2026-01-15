@@ -1,15 +1,29 @@
 import React from 'react'
 import { FaPlus } from 'react-icons/fa'
-import { useDispatch } from 'react-redux';
-import { createItem } from '../redux/acions/basketActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { createItem, updateItem } from '../redux/acions/basketActions';
+import store from "../redux/store"
 
 const ProductCard = ({ item }) => {
     // console.log(item)
 
+    // ayni ürün tekrar eklendigi zaman buton yerine ürün adedi yazmak icin
+    const { cart } = useSelector((store) => store.CardReducer);
+    // console.log(cart)
+
+    // prop olarak gelen ürün sepete daha önce eklenmis mi?
+    const found = cart?.find((cartItem) => cartItem.productId === item.id);
+    // console.log(found);
+
     const dispatch = useDispatch();
 
+    // arti butonuna tiklaninca
     const handleAdd = () => {
-        dispatch(createItem(item));
+        found
+            // eger ürün sepette var ise miktarini 1 arttiran aksiyonu calistir
+            ? dispatch(updateItem(found.id, found.amount + 1))
+            // eger ürün sepette yok ise ürünü sepete ekleyen aksiyonu calistir
+            : dispatch(createItem(item));
     };
 
     return (
@@ -24,7 +38,7 @@ const ProductCard = ({ item }) => {
             <div className='relative'>
                 <img src={item.photo} className='rounded-md object-cover size-full' />
                 <button onClick={handleAdd} className='absolute end-2 bottom-2 bg-white rounded-full hover:bg-red-100 size-8 grid place-items-center'>
-                    <FaPlus />
+                    {found ? <span className='font-bold'>{found.amount}</span> : <FaPlus />}
                 </button>
             </div>
         </div>

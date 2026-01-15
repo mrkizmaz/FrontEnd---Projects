@@ -19,7 +19,7 @@ const OrderBox = ({ cart }) => {
 
             <p className='flex items-center gap-2 my-4'>
                 <span className='text-gray-600'>Toplam Fiyat: </span>
-                <span className='text-lg font-bold text-red-500'>{totalPrice.toFixed(2)}</span>
+                <span className='text-lg font-bold text-red-500'>$ {totalPrice.toFixed(2)}</span>
             </p>
 
             <button className='bg-red-500 py-2 px-3 rounded-md text-white transition hover:bg-red-400 '>Siparisi Onayla</button>

@@ -38,3 +38,19 @@ export const createItem = (item) => (dispatch) => {
         // hata olursa
         .catch((err) => dispatch({ type: actionTypes.CARD_ERROR, payload: err }))
 };
+
+// ürünün api'daki miktarini güncelledikten sonra reducer'a güncellendiginin haberini gönder
+export const updateItem = (id, newAmount) => (dispatch) => {
+    api
+        // api'ya güncelleme istege at
+        .patch(`/cart/${id}`, { amount: newAmount })
+        // istek basarili olursa
+        .then((res) => dispatch({ type: actionTypes.UPDATE_ITEM, payload: res.data }))
+};
+
+// ürünü api'dan silip reducar'a kaldirilmasi icin haber ver
+export const deleteItem = (id) => (dispatch) => {
+    api
+        .delete(`/cart/${id}`)
+        .then(() => dispatch({ type: actionTypes.DELETE_ITEM, payload: id }))
+};
