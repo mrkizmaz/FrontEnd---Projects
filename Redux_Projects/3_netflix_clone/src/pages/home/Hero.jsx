@@ -3,6 +3,7 @@ import api from '../../api'
 import Error from '../../components/error'
 import Loader from '../../components/loader'
 import { Link } from 'react-router-dom'
+import { baseImgUrl } from '../../constant'
 
 const Hero = () => {
 
@@ -26,7 +27,7 @@ const Hero = () => {
     }, []);
 
     // rastgele 1 film
-    console.log(movie);
+    // console.log(movie);
 
 
     if (error) return <Error info={error} />
@@ -50,8 +51,8 @@ const Hero = () => {
                 </div>
             </div>
             <div>
-                <h1>RESIM</h1>
-                <img src="" />
+                <img className='drop-shadow-xl drop-shadow-cyan-700/50 my-4 object-contain rounded max-h-75'
+                    src={baseImgUrl + movie.backdrop_path} />
             </div>
         </div>
     )
