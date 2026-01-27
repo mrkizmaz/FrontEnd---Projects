@@ -4,6 +4,7 @@ import Error from '../../components/error'
 import Loader from '../../components/loader'
 import { Link } from 'react-router-dom'
 import { baseImgUrl } from '../../constant'
+import SaveButton from '../../components/saveBtn/SaveButton'
 
 const Hero = () => {
 
@@ -47,7 +48,7 @@ const Hero = () => {
 
                 <div className='flex gap-5'>
                     <Link to={`/movie/${movie.id}`} className='py-2 px-4 bg-red-600 rounded transition hover:bg-red-700'>Filmi Izle</Link>
-                    <button className='py-2 px-4 bg-blue-600 rounded transition hover:bg-blue-700'>Kaydet</button>
+                    <SaveButton movie={movie} />
                 </div>
             </div>
             <div>

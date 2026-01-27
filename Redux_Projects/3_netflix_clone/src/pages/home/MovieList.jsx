@@ -3,6 +3,7 @@ import api from "../../api";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { baseImgUrl } from "../../constant";
+import { Link } from "react-router-dom";
 
 const MovieList = ({ genre }) => {
 
@@ -19,7 +20,7 @@ const MovieList = ({ genre }) => {
             .catch((err) => console.log(err))
     }, []);
 
-    console.log(movies);
+    // console.log(movies);
 
     return (
         <div className="my-10">
@@ -27,8 +28,10 @@ const MovieList = ({ genre }) => {
             <Splide options={{ autoWidth: true, gap: "20px", pagination: false, type: "loop" }} aria-label="My Favorite Images">
                 {movies?.map((movie, key) => (
                     <SplideSlide key={key}>
-                        <img className="max-w-[300px] cursor-pointer rounded transition hover:scale-[1.01]"
-                            src={baseImgUrl + movie.poster_path} alt="Image 2" />
+                        <Link to={`/movie/${movie.id}`}>
+                            <img className="max-w-75 cursor-pointer rounded transition hover:scale-[1.01]"
+                                src={baseImgUrl + movie.poster_path} alt="Image 2" />
+                        </Link>
                     </SplideSlide>
                 ))}
 
