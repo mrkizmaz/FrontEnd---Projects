@@ -10,6 +10,7 @@
 - @splidejs/splide
 - @splidejs/react-splide
 - millify
+- react-player
 
 # Kaynaklar
 

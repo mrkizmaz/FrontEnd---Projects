@@ -19,7 +19,7 @@ const Detail = () => {
     useEffect(() => {
         const params = {
             // farkli endpointleri de dahil et
-            append_to_response: "credits, videos",
+            append_to_response: "credits,videos"
         }
 
         api.get(`/movie/${id}`, { params })
@@ -31,6 +31,8 @@ const Detail = () => {
 
     if (error) return <Error info={error} />
     if (!movie) return <Loader />
+
+    // console.log(movie)
 
     return (
         <div>

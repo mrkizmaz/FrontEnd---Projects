@@ -7,6 +7,12 @@ import Footer from './components/footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
+
+  window.addEventListener('error', (e) => {
+    if (e.message.includes('postMessage')) {
+      e.stopImmediatePropagation();
+    }
+  });
   return (
 
     <BrowserRouter>
