@@ -8,7 +8,7 @@ const Banner = ({ movie }) => {
                 src={baseImgUrl + movie.backdrop_path} alt="" />
 
             <div className='bg-auto absolute inset-0 grid place-items-center bg-opacity-40'>
-                <h2 className='text-3xl md:text-4xl font-semibold font-mono'>
+                <h2 className='text-3xl md:text-4xl font-semibold font-mono text-center'>
                     {movie.title}
                 </h2>
             </div>

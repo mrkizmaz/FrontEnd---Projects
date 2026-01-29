@@ -37,7 +37,7 @@ const Hero = () => {
 
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 md:may-h-[400px] gap-5 mb-10'>
+        <div className='grid grid-cols-1 md:grid-cols-2 md:max-h-100 gap-5 mb-10'>
             <div className='flex flex-col gap-6 items-center justify-center'>
                 <h1 className='text-3xl font-bold'>{movie.title}</h1>
                 <p className='text-start text-gray-300'>{movie.overview}</p>
@@ -52,7 +52,7 @@ const Hero = () => {
                 </div>
             </div>
             <div>
-                <img className='drop-shadow-xl drop-shadow-cyan-700/50 my-4 object-contain rounded max-h-75'
+                <img className='drop-shadow-xl drop-shadow-cyan-700/50 my-5 mx-auto object-contain rounded max-h-75'
                     src={baseImgUrl + movie.backdrop_path} />
             </div>
         </div>

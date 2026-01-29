@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import api from '../../api';
 import Error from '../../components/error';
 import Loader from '../../components/loader';
@@ -37,9 +37,10 @@ const Detail = () => {
     return (
         <div>
             <div className='flex justify-between mb-5'>
-                <button className='flex items-center bg-gray-600 py-2 px-4 rounded hover:bg-gray-500 transition gap-2'>
+                {/* -1 veya "..": bir önceki sayfaya dön. */}
+                <Link to={-1} className='flex items-center bg-gray-600 py-2 px-4 rounded hover:bg-gray-500 transition gap-2'>
                     <RiArrowLeftSLine className='text-xl' />
-                    Back</button>
+                    Back</Link>
                 <SaveButton movie={movie} />
             </div>
 

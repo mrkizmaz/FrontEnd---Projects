@@ -1,8 +1,12 @@
 import React from 'react'
 
-const Error = () => {
+const Error = ({ info }) => {
     return (
-        <div>Error</div>
+        <div className='text-center my-20'>
+            <p className='mb-10'>Üzgünüz bir sorun olustu!</p>
+            <p className='font-semibold'>{info}</p>
+            <p className='mt-10'>Daha sonra tekrar deneyiniz...</p>
+        </div>
     )
 }
 

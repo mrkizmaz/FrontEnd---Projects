@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Home from './pages/home'
 import Detail from './pages/detail'
 import Favorites from './pages/favorites'
 import Header from './components/header'
 import Footer from './components/footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getWatchList } from './redux/actions'
 
 const App = () => {
 
+  // hata oldugu zaman egale et
   window.addEventListener('error', (e) => {
     if (e.message.includes('postMessage')) {
       e.stopImmediatePropagation();
     }
   });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getWatchList());
+  }, [])
+
+  // izleme listesine eklenmis olan filmleri al ve storea aktar
   return (
 
     <BrowserRouter>
@@ -27,7 +38,7 @@ const App = () => {
 
             <Route path="/" element={<Home />} />
             <Route path="/movie/:id" element={<Detail />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/watch-list" element={<Favorites />} />
 
           </Routes>
 
