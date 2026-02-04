@@ -57,10 +57,10 @@
 
 /* From Uiverse.io by vinodjangid07 */
 .button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: rgb(20, 20, 20);
+    background-color: rgba(211, 76, 76, 0.84);
     border: none;
     font-weight: 600;
     display: flex;
@@ -73,29 +73,29 @@
     overflow: hidden;
     position: relative;
     gap: 2px;
-}
 
-.svgIcon {
-    width: 12px;
-    transition-duration: 0.3s;
-}
+    &:hover {
+        transition-duration: 0.3s;
+        background-color: rgb(255, 69, 69);
+        align-items: center;
+        gap: 0;
+    }
 
-.svgIcon path {
-    fill: white;
-}
+    .bin-top {
+        transform-origin: bottom right;
+    }
 
-.button:hover {
-    transition-duration: 0.3s;
-    background-color: rgb(255, 69, 69);
-    align-items: center;
-    gap: 0;
-}
+    &:hover .bin-top {
+        transition-duration: 0.5s;
+        transform: rotate(160deg);
+    }
 
-.bin-top {
-    transform-origin: bottom right;
-}
+    .svgIcon {
+        width: 11px;
+        transition-duration: 0.3s;
+    }
 
-.button:hover .bin-top {
-    transition-duration: 0.5s;
-    transform: rotate(160deg);
+    .svgIcon path {
+        fill: white;
+    }
 }

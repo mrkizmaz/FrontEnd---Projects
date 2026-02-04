@@ -25,7 +25,7 @@ const Card = ({ job }) => {
                     <p>{job.company}</p>
                 </div>
                 <div>
-                    <DelButton />
+                    <DelButton id={job.id} />
                 </div>
             </section>
 
