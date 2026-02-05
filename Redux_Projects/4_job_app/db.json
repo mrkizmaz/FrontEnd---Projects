@@ -98,6 +98,33 @@
       "status": "Mülakat",
       "type": "Tam Zamanli",
       "date": 1769989920811
+    },
+    {
+      "id": "69db",
+      "position": "React Developer",
+      "company": "Tesla",
+      "location": "13581",
+      "status": "Mülakat",
+      "type": "Tam Zamanli",
+      "date": 1770241231956
+    },
+    {
+      "id": "94a7",
+      "position": "CEO",
+      "company": "Tesla & SpaceX",
+      "location": "13581",
+      "status": "Mülakat",
+      "type": "Tam Zamanli",
+      "date": 1770241643988
+    },
+    {
+      "id": "0135a904-7d3a-4a0d-802c-04926bad8718",
+      "position": "AI-Specialist",
+      "company": "SpaceX",
+      "location": "13581",
+      "status": "Mülakat",
+      "type": "Tam Zamanli",
+      "date": 1770241848171
     }
   ]
 }

@@ -8,6 +8,7 @@ import api from "../../utills/api"
 import { useDispatch } from 'react-redux'
 import { createJob, setError } from '../../redux/slices/jobSlices'
 import { useNavigate } from 'react-router-dom'
+import { v4 } from 'uuid'
 
 const Create = () => {
 
@@ -25,11 +26,12 @@ const Create = () => {
         // tarih ekle
         // console.log(jobData)
         jobData.date = Date.now();
+        jobData.id = v4();
 
         // apiya post istegi at
         api.post("/jobs", jobData)
-            .then(() => {
-                dispatch(createJob(jobData));
+            .then((res) => {
+                dispatch(createJob(res.data));
                 toast.success("Basvurulu olusturuldu");
                 navigate("/");
                 console.log(jobData)
