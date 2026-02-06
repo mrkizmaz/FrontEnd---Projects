@@ -1,10 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setText } from '../redux/slices/translateSlice';
+import Loader from './Loader';
+import { translateText } from '../redux/actions';
 
 const TextContainer = () => {
 
-    const { textToTranslate } = useSelector((store) => store.translateReducer);
+    const { textToTranslate, translatedText, isLoading } = useSelector((store) => store.translateReducer);
     const dispatch = useDispatch();
 
     return (
@@ -13,12 +15,18 @@ const TextContainer = () => {
 
                 <textarea
                     value={textToTranslate}
-                    onChange={(e) => dispatch(setText(e.target.value))}
+                    onChange={(e) => {
+                        dispatch(setText(e.target.value));
+                    }}
                     className='w-full min-h-60 max-h-125 text-black text-[20px] rounded p-2.5 bg-white'></textarea>
             </div>
-            <div className='flex-1'>
+            <div className='flex-1 relative'>
                 <textarea disabled
-                    className='w-full min-h-60 max-h-125 text-[20px] rounded p-2.5 bg-gray-300'></textarea>
+                    value={translatedText}
+                    className='w-full min-h-60 max-h-125 text-[20px] rounded p-2.5 bg-gray-500'></textarea>
+                {isLoading &&
+                    <Loader />
+                }
             </div>
         </div >
     )

@@ -3,6 +3,7 @@ import Select from 'react-select'
 import Button from './Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeLangs, setSource, setTarget } from '../redux/slices/translateSlice'
+import { translateText } from '../redux/actions'
 
 const LanguageSelect = () => {
 
@@ -40,7 +41,11 @@ const LanguageSelect = () => {
                 value={sourceLang}
                 isLoading={isLoading}
                 isDisabled={isLoading}
-                onChange={(selected) => dispatch(setSource(selected))}
+                onChange={(selected) => {
+
+                    if (selected.value === targetLang.value)
+                        return dispatch(changeLangs());
+                }}
                 className='flex-1' />
 
             <button onClick={() => dispatch(changeLangs())}
@@ -50,7 +55,16 @@ const LanguageSelect = () => {
                 value={targetLang}
                 isLoading={isLoading}
                 isDisabled={isLoading}
-                onChange={(selected) => dispatch(setTarget(selected))}
+                onChange={(selected) => {
+                    // eger secilen dil ve hedef dil ayni ise fonksiyonu durdur
+                    if (targetLang.value === selected.value) return;
+
+                    // eger secilen dil kaynak dil ile ayniysa yer degistir
+                    if (sourceLang.value === selected.value)
+                        return dispatch(changeLangs());
+                    dispatch(setTarget(selected));
+                    dispatch(translateText(selected));
+                }}
                 className='flex-1' />
         </div>
     )

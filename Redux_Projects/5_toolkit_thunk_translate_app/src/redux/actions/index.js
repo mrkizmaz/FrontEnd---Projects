@@ -26,7 +26,8 @@ export const translateText = createAsyncThunk("translate/translateText",
         // api'ye istek at
         const res = await api.post("/translate", params);
 
-        console.log(res.data.data.translatedText);
-        // return res.data.data.translatedText;
+        // console.log(res.data.data.translatedText);
+        // actionun payloadini belirle
+        return res.data.data.translatedText;
     }
 )
