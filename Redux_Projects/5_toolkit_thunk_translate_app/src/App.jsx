@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className='bg-zinc-800 text-white min-h-screen grid place-items-center'>
       <div className='w-[80vw] max-w-275 flex flex-col justify-center'>
-        <h1 className='text-center font-semibold my-7 text-4xl'>Ceviri +</h1>
+        <h1 className='text-center font-semibold my-6 text-4xl'>Ceviri +</h1>
 
         <LanguageSelect />
         <TextContainer />
