@@ -28,7 +28,7 @@ const App = () => {
       </Routes>
 
       {/* detailId state'i doluysa ekrana modal bas ve id propu gönder  */}
-      {true && <Modal id={detailId} close={() => setDetailId(null)} />}
+      {detailId && <Modal id={detailId} close={() => setDetailId(null)} />}
 
     </BrowserRouter>
   )

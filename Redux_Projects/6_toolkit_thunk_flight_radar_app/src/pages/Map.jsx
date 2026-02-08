@@ -1,8 +1,9 @@
 import React from 'react'
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet'
 import "leaflet/dist/leaflet.css"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import L, { icon } from "leaflet"
+import { clearRoute } from '../redux/slices/detailSlice'
 
 // bu kütüphane import edildiginde hata veriyor :/
 // import 'leaflet-rotatedmarker';
@@ -10,6 +11,9 @@ import L, { icon } from "leaflet"
 const Map = ({ setDetailId }) => {
 
     const { flights } = useSelector((store) => store.flight);
+    const { route } = useSelector((store) => store.detail);
+
+    const dispatch = useDispatch();
     // console.log(flights);
 
     // custom imlec ikonu olustur
@@ -48,6 +52,11 @@ const Map = ({ setDetailId }) => {
                             <div className='popup'>
                                 <span>Kod: {flight.code}</span>
                                 <button onClick={() => setDetailId(flight.id)}>Detay</button>
+                                {
+                                    route.length > 1 && (
+                                        <button onClick={() => dispatch(clearRoute())}>Clear Route</button>
+                                    )
+                                }
                             </div>
                         </Popup>
                     </Marker>
@@ -55,7 +64,7 @@ const Map = ({ setDetailId }) => {
             }
             )}
 
-
+            {route && <Polyline positions={route} />}
         </MapContainer>
     )
 }

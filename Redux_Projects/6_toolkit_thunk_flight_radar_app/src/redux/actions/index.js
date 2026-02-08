@@ -5,14 +5,14 @@ export const getFlights = createAsyncThunk("flight/getFlight", async () => {
 
     // parametreleri belirle
     const params = {
-        bl_lat: '47.16',
-        bl_lng: '5.52',
-        tr_lat: '55.3',
-        tr_lng: '15.2',
-        speed: '100,500',
+        bl_lat: '46.940205',
+        bl_lng: '5.507349',
+        tr_lat: '54.816373',
+        tr_lng: '15.600558',
+        limit: '200',
     };
 
-    // const res = await api.get('/flights/list-in-boundary', { params });
+    const res = await api.get('/flights/list-in-boundary', { params });
 
     // api'dan gelen veriler dizi icerisine dizi oldugundan dolayi projede kullanimi kolay olsun diye dizi icindeki dizile nesneye cevir
     const formatted = res.data.aircraft.map((item) => ({
@@ -28,3 +28,14 @@ export const getFlights = createAsyncThunk("flight/getFlight", async () => {
     // slice'a aktarilacak payloadi belirle
     return formatted;
 });
+
+export const getDetails = createAsyncThunk("detail/getDetails", async (id) => {
+
+    const params = {
+        flight: id,
+    };
+
+    const res = await api.get("flights/detail", { params });
+
+    return res.data;
+})
