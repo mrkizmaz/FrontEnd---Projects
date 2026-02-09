@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet'
 import "leaflet/dist/leaflet.css"
 import { useDispatch, useSelector } from 'react-redux'
 import L, { icon } from "leaflet"
 import { clearRoute } from '../redux/slices/detailSlice'
+import { getFlights } from '../redux/actions'
 
 // bu kütüphane import edildiginde hata veriyor :/
 // import 'leaflet-rotatedmarker';
 
 const Map = ({ setDetailId }) => {
+
+    useEffect(() => {
+        // her 1 saniyede veri cekerek ucagin canli olarak izlenmesi
+        // const id =setInterval(() => {
+        //   dispatch(getFlights());
+        // }, 1000);
+        // kullanici sayfadan ayrilirsa sayaci otomatik durdur
+        // return () => clearInterval(id)
+
+        dispatch(getFlights());
+    }, [])
 
     const { flights } = useSelector((store) => store.flight);
     const { route } = useSelector((store) => store.detail);

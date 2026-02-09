@@ -29,14 +29,14 @@
 - Dezavataj:
 - Yüksek Maaliyet
 - Gecikme
-- Aşırıs İstek
+- Aşırıs İstek (veri degismediginde de istek atar)
 
 ## Websocket
 
 - Avantaj:
 - Gerçek Zamanlı
 - Verimli
-- Az Gecikme
+- Az Gecikme (sadece veri degistiginde istek atar)
 
 - Dezavataj:
 - Karmaşık

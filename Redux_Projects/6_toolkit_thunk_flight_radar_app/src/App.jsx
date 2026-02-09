@@ -14,6 +14,13 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // her 1 saniyede veri cekerek ucagin canli olarak izlenmesi
+    // const id =setInterval(() => {
+    //   dispatch(getFlights());
+    // }, 1000);
+    // kullanici sayfadan ayrilirsa sayaci otomatik durdur
+    // return () => clearInterval(id)
+
     dispatch(getFlights());
   }, [])
 
@@ -24,7 +31,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Map setDetailId={setDetailId} />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/list" element={<List setDetailId={setDetailId} />} />
       </Routes>
 
       {/* detailId state'i doluysa ekrana modal bas ve id propu gönder  */}

@@ -7,6 +7,7 @@ import Airport from './Airport';
 import Time from './Time';
 import Aircraft from './Aircraft';
 import Loader from '../Loader';
+import Error from '../Error';
 
 const Modal = ({ id, close }) => {
 

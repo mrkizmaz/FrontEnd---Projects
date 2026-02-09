@@ -411,6 +411,38 @@ button:focus-visible {
   color: rgb(197, 195, 195);
 }
 
+/* pagination */
+/* buradaki stillendirme class isimleri pagination componentinin icinde hazir bir sekilde geliyor! */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+
+  li {
+    padding: 10px 15px;
+    background: black;
+  }
+
+  li:first-child {
+    border-radius: 8px 0 0 8px;
+    white-space: nowrap;
+  }
+
+  li:last-child {
+    border-radius: 0 8px 8px 0;
+    white-space: nowrap;
+  }
+
+  .selected {
+    background: #535bf2;
+  }
+}
+
+.th {
+  white-space: nowrap;
+}
+
+
 @media (max-width: 450px) {
   .modal-outer {
     inset: 0;

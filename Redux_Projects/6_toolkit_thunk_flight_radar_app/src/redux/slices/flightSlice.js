@@ -17,6 +17,7 @@ const flightSlice = createSlice({
         });
 
         builder.addCase(getFlights.rejected, (state, { error }) => {
+            state.isLoading = false;
             state.error = error.message;
         });
 
