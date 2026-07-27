@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+    .input {
+        @apply text-black bg-white rounded mt-2 p-2 outline-none shadow-lg focus:shadow-[gray]
+    }
+}
