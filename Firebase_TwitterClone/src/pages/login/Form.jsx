@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { auth } from "../../firebase"
 import ForgotPassword from './forgot-password';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Form = () => {
 
     const [isSignUp, setisSignUp] = useState(false);
+    const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
 
     const formik = useFormik({
@@ -17,15 +19,16 @@ const Form = () => {
             password: "",
         },
 
-        onSubmit: ({ email, password }) => {
+        onSubmit: ({ email, password }, { resetForm }) => {
             // console.log(values)
             if (isSignUp) {
                 // yeni hesap olustur
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((res) => {
                         sendEmailVerification(res.user)
-                        toast.info("Hesabinizi dogrulamak icin lütfen email postanizi kontrol ediniz.");
-                        navigate("/feed");
+                        toast.info("Giris yapmak icin mailinize gelen dogrulama epostasini onaylayiniz.");
+                        setisSignUp(false);
+                        resetForm();
                     })
                     .catch((err) => {
                         toast.error("Hata!: " + err.code);
@@ -49,14 +52,31 @@ const Form = () => {
         <>
             <form className='flex flex-col' onSubmit={formik.handleSubmit}>
                 <label>Email</label>
-                <input name='email' type="email" className='input' onChange={formik.handleChange} />
+                <input
+                    value={formik.values.email}
+                    name='email' type="email" className='input'
+                    onChange={formik.handleChange}
+                    autoFocus />
 
                 <label className='mt-5'>Password</label>
-                <input name='password' type="text" className='input' onChange={formik.handleChange} />
+                <div className='relative'>
+                    <input
+                        type={showPass ? "text" : "password"}
+                        name="password"
+                        value={formik.values.password}
+                        name='password'
+                        className='input w-full'
+                        onChange={formik.handleChange} />
+                    <span
+                        onClick={() => setShowPass(!showPass)}
+                        className='absolute end-2 text-black text-2xl top-[50%] translate-y-[-40%] cursor-pointer'>
+                        {showPass ? <FaEyeSlash /> : <FaEye />}
+                    </span>
+                </div>
 
-                <ForgotPassword />
+                {!isSignUp ? <ForgotPassword /> : <div className='h-[28px] w-1'></div>}
 
-                <button className='mt-10 bg-white text-black font-bold rounded-full p-2 transition hover:bg-gray-300'>{isSignUp ? "Sign Up" : "Login"}</button>
+                <button type='submit' className='mt-10 bg-white text-black font-bold rounded-full p-2 transition hover:bg-gray-300'>{isSignUp ? "Sign Up" : "Login"}</button>
 
                 <p className='mt-5 text-center'>
                     <span className='text-gray-500'>{isSignUp ? "Hesabiniz var ise" : "Hesabiniz yok ise"}</span>
