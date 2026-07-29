@@ -1,6 +1,8 @@
 import React from 'react'
 import { navSections } from '../../utils/constants'
-
+import { signOut } from 'firebase/auth/cordova'
+import { auth } from '../../firebase'
+import { BiSolidDoorOpen } from 'react-icons/bi'
 
 const Nav = ({ user }) => {
 
@@ -18,14 +20,15 @@ const Nav = ({ user }) => {
 
             </div>
 
-            <div>
-                {user === undefined ? (<div>loader</div>)
-                    :
-                    (<div>
-                        <div></div>
-                        <div className='bg-zinc-700'>Cikis Yap</div>
-                    </div>)
-                }
+            <div className='flex flex-col gap-5'>
+                <div className='flex flex-col items-center gap-2'>
+                    <img src={user?.photoURL} referrerPolicy='no-referrer' className='rounded-full max-w-[45px]' />
+                    <p className='max-md:hidden'>{user.displayName}</p>
+                </div>
+                <button className='bg-zinc-700 flex justify-center items-center p-2 gap-2 text-2xl md:text-base bg-zinc-700 transition rounded hover:bg-zinc-900 max-md:p-2' onClick={() => signOut(auth)}>
+                    <BiSolidDoorOpen />
+                    <span className='max-md:hidden'>Cikis Yap</span>
+                </button>
             </div>
         </nav>
     )

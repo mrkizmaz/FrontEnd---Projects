@@ -33,7 +33,8 @@ const Protected = () => {
     }
 
     // oturumu acik ve epostasi dogrulanmissa akis sayfasini göster
-    return <Outlet />
+    // ilgili safaya user verilerini prop olarak gönder
+    return <Outlet context={user} />
 
 }
 

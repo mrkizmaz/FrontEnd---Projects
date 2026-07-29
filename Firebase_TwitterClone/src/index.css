@@ -4,4 +4,8 @@
     .input {
         @apply text-black bg-white rounded mt-2 p-2 outline-none shadow-lg focus:shadow-[gray]
     }
+
+    .form-icon {
+        @apply transition hover:bg-[#1D9BF0]/40 rounded-full size-8 grid place-items-center
+    }
 }

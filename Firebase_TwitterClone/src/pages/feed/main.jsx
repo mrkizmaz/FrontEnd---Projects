@@ -1,8 +1,20 @@
 import React from 'react'
+import Form from '../../components/form'
+import Post from '../../components/post'
 
-const Main = () => {
+const Main = ({ user }) => {
     return (
-        <div>Main</div>
+        <main className='border border-zinc-600 overflow-y-auto'>
+            <header className='border-b border-zinc-600 p-4 font-bold'>Anasayfa</header>
+
+            <Form user={user} />
+
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+
+        </main>
     )
 }
 
