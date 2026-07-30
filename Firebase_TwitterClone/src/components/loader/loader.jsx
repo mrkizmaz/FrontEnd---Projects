@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Loader = () => {
+const Loader = ({ designs }) => {
     return (
-        <div className="text-center">
+        <div className={`text-center ${designs}`} >
             <div role="status">
                 <svg
                     aria-hidden="true"
@@ -22,7 +22,7 @@ const Loader = () => {
                 </svg>
                 <span className="sr-only">Loading...</span>
             </div>
-        </div>
+        </div >
     )
 }
 

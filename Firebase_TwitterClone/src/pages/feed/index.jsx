@@ -17,7 +17,7 @@ const Feed = () => {
 
     // outlet componentindan gönderilen context propuna bu hook araciligi ile erisebiliyoruz
     const user = useOutletContext();
-    console.log(user);
+    // console.log(user);
 
     /*
      const [user, setUser] = useState(undefined);
