@@ -1,15 +1,16 @@
 import React from 'react'
 import Hero from './hero'
 import Statistics from './statistics'
+import Map from './map'
 
 const Home = () => {
     return (
         <div>
-            <div>
-                <Hero />
+            <Hero />
 
-                <Statistics />
-            </div>
+            <Statistics />
+
+            <Map />
         </div>
     )
 }

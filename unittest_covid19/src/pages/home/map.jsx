@@ -1,0 +1,44 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps"
+import { geoUrl } from '../../utils/contants';
+
+const Map = () => {
+
+    const navigate = useNavigate();
+
+    const redirect = (geo) => {
+        navigate(`/detail/${geo.properties.name.toLowerCase()}`)
+    }
+
+    return (
+        <div className='container p-0 mt-10 mb-20'>
+            <h1 className='p-5 text-2xl font-semibold'>Ülke Secin</h1>
+
+            <div className='border shadow-lg md:rounded-xl bg-gray-200'>
+                <ComposableMap>
+                    <ZoomableGroup>
+                        <Geographies geography={geoUrl}>
+                            {({ geographies }) =>
+                                geographies.map((geo) => (
+                                    <Geography key={geo.rsmKey} geography={geo}
+                                        style={{
+                                            default: { fill: "white", stroke: "gray" },
+                                            hover: { fill: "#DB2777" }
+                                        }}
+                                        onClick={() =>
+                                            // console.log(geo)
+                                            redirect(geo)
+                                        }
+                                    />
+                                ))
+                            }
+                        </Geographies>
+                    </ZoomableGroup>
+                </ComposableMap>
+            </div>
+        </div>
+    )
+}
+
+export default Map
