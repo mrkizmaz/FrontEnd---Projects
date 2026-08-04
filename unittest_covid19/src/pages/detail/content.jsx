@@ -6,7 +6,7 @@ import { getDetails } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 
 const Content = () => {
-    const { isLoading, error, data } = useSelector((store) => store.covidReducer);
+    const { isLoading, error, data } = useSelector((store) => store);
     // console.log(data)
     const dispatch = useDispatch();
     const { code } = useParams();

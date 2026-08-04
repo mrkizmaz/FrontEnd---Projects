@@ -11,7 +11,7 @@ const Detail = () => {
     const { code } = useParams();
     // console.log(params)
 
-    const { isLoading, error, data } = useSelector((store) => store.covidReducer);
+    const { isLoading, error, data } = useSelector((store) => store);
     const dispatch = useDispatch();
 
     useEffect(() => {

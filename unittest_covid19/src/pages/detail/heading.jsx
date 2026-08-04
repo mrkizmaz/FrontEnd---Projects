@@ -5,7 +5,7 @@ import HeaderLoader from "../../components/loader/headerLoader";
 // import HeaderLoader from "../../components/loader/header-loader";
 
 const Heading = () => {
-    const { isLoading, data } = useSelector((store) => store.covidReducer);
+    const { isLoading, data } = useSelector((store) => store);
     // console.log(data);
 
     return (
