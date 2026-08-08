@@ -43,7 +43,11 @@ it("store'da yüklenme bittiginde ekranda loader yoktur", () => {
         </Provider>
     );
 
-    // todo: yarin bakalim ekranda loader yok mu?
+    // ekranda loader id'sine sahip eleman varsa al
+    const loader = screen.queryByTestId("heading-loader");
+
+    // ekranda loader yoktur
+    expect(loader).toBeNull();
 });
 
 it("storea veri geldiginde ekrana veriler basilir", () => {
